@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-module-template",
-  "version": "0.0.0",
-  "description": "X Module for Nuxt.js",
+  "name": "nuxt-web3-onboarding",
+  "version": "0.1.0",
+  "description": "Nuxt web3 onboarding",
   "keywords": [
     "nuxt",
     "module",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "contributors": [
     {
-      "name": "Baroshem <jakub.andrzejewski.dev@gmail.com>"
+      "name": "Stone <jxijieyin@gmail.com>"
     }
   ],
   "sideEffects": false,
@@ -22,12 +22,21 @@
   ],
   "scripts": {
     "build": "siroc build  && mkdist --src src/runtime --dist dist/runtime",
-    "dev": "nuxt-ts example",
+    "build:ts": "tsc --declaration",
+    "dev": "nuxt example",
     "lint": "eslint --ext .js,.ts,.vue .",
     "release": "yarn build && yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@web3-onboard/core": "^2.0.11",
+    "@web3-onboard/injected-wallets": "^2.0.2",
+    "@web3-onboard/walletconnect": "^2.0.1",
+    "@web3-onboard/walletlink": "^2.0.0",
+    "defu": "^6.0.0",
+    "nuxt-typed-vuex": "^0.3.0",
+    "pathe": "^0.2.0"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.16.0",
     "@babel/plugin-transform-runtime": "latest",
@@ -43,9 +52,11 @@
     "babel-eslint": "latest",
     "babel-jest": "latest",
     "eslint": "latest",
+    "eslint-config-prettier": "^8.5.0",
     "husky": "^7.0.4",
     "jest": "latest",
-    "nuxt-edge": "latest",
+    "nuxt": "latest",
+    "prettier": "^2.6.1",
     "siroc": "latest",
     "standard-version": "latest"
   },
